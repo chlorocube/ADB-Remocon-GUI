@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="chlorocube">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <title>ADB Remocon GUI on HTML</title>
+    <style>
+        html {
+            font-size: 0.72rem;
+            font-family: メイリオ, sans-serif;
+            color: #333631;
+            padding: 12px;
+        }
+
+        body {
+            width: 520px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #595E56;
+            text-align: center;
+            line-height: 30px;
+            margin: 4px 2px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .btnm {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #595E56;
+            text-align: center;
+            line-height: 40px;
+            margin: 4px 2px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .btn:hover,
+        .btnm:hover {
+            cursor: pointer;
+            position: relative;
+            background-color: #D0EFEF;
+            top: 1px;
+        }
+
+        .blank {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            text-align: center;
+            line-height: 30px;
+            margin: 4px 2px;
+        }
+
+        i.l {
+            position: relative;
+            font-size: 1.5rem;
+            color: #6C7368;
+            top: 2px;
+        }
+
+        i.m {
+            position: relative;
+            font-size: 1.2rem;
+            color: #6C7368;
+            top: 1px;
+        }
+
+        i.s {
+            position: relative;
+            font-size: 1.0rem;
+            color: #6C7368;
+            top: 1px;
+        }
+
+        i.ss {
+            font-size: 0.9rem;
+            color: #6C7368;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="padding:0 12px;">
+        <p>IEでのみ動作します。</p>
+    </div>
+    <div style="display:flex">
+        <div style="padding:12px;">
+            <div class="btnm" title="POWER" onclick="send('POWER')"><i class="m fa fa-power-off" aria-hidden="true"></i>
+            </div>
+            <div class="btnm" title="SETTINGS" onclick="send('SETTINGS')">設定</div>
+            <div class="btnm" title="CAMERA" onclick="send('CAMERA')"><i class="l fas fa-camera-retro"></i></div>
+            <br>
+            <br>
+            <div class="blank">&nbsp;</div>
+            <div class="btn" title="DPAD_UP" onclick="send('DPAD_UP')">↑</div>
+            <br>
+            <div class="btn" title="DPAD_LEFT" onclick="send('DPAD_LEFT')">←</div>
+            <div class="btn" title="DPAD_CENTER" onclick="send('DPAD_CENTER')">OK</div>
+            <div class="btn" title="DPAD_RIGHT" onclick="send('DPAD_RIGHT')">→</div>
+            <br>
+            <div class="blank">&nbsp;</div>
+            <div class="btn" title="DPAD_DOWN" onclick="send('DPAD_DOWN')">↓</div>
+            <br>
+            <div class="btn" title="BACK" onclick="send('BACK')">戻る</div>
+            <div class="btn" title="HOME" onclick="send('HOME')">○</div>
+            <div class="btn" title="MENU" onclick="send('MENU')">ﾒﾆｭｰ</div>
+        </div>
+        <div style="padding:12px;">
+            <br>
+            <br>
+            <div class="blank">&nbsp;</div>
+            <div class="btn" onclick="send('0')">0</div>
+            <br>
+            <div class="btn" onclick="send('1')">1</div>
+            <div class="btn" onclick="send('2')">2</div>
+            <div class="btn" onclick="send('3')">3</div>
+            <br>
+            <div class="btn" onclick="send('4')">4</div>
+            <div class="btn" onclick="send('5')">5</div>
+            <div class="btn" onclick="send('6')">6</div>
+            <br>
+            <div class="btn" onclick="send('7')">7</div>
+            <div class="btn" onclick="send('8')">8</div>
+            <div class="btn" onclick="send('9')">9</div>
+            <br>
+            <div class="btn" onclick="send('10')">10</div>
+            <div class="btn" onclick="send('11')">11</div>
+            <div class="btn" onclick="send('12')">12</div>
+        </div>
+        <div style="padding:12px;">
+            <div class="btn" title="VOLUME_DOWN" onclick="send('VOLUME_DOWN')">－</div>
+            <div class="blank">VOL</div>
+            <div class="btn" title="VOLUME_UP" onclick="send('VOLUME_UP')">＋</div>
+            <div class="btn" title="VOLUME_MUTE" onclick="send('VOLUME_MUTE')">消音</div>
+            <br>
+            <div class="btn" title="CHANNEL_DOWN" onclick="send('CHANNEL_DOWN')">－</div>
+            <div class="blank">CH</div>
+            <div class="btn" title="CHANNEL_UP" onclick="send('CHANNEL_UP')">＋</div>
+            <br>
+            <br>
+            <div class="btn" onclick="send('TV')">TV</div>
+            <div class="btn" title="TV_INPUT" onclick="send('TV_INPUT')">入力</div>
+            <div class="btn" title="TV_DATA_SERVICE" onclick="send('TV_DATA_SERVICE')">d</div>
+            <br>
+            <div class="btn" title="TV_TERRESTRIAL_DIGITAL" onclick="send('TV_TERRESTRIAL_DIGITAL')">地上</div>
+            <div class="btn" title="TV_SATELLITE_BS" onclick="send('TV_SATELLITE_BS')">BS</div>
+            <div class="btn" title="TV_SATELLITE_CS" onclick="send('TV_SATELLITE_CS')">CS</div>
+            <br>
+            <div class="btn" title="PROG_BLUE" style="background: #4D74A5;" onclick="send('PROG_BLUE')">&nbsp;</div>
+            <div class="btn" title="PROG_RED" style="background: #D55A57;" onclick="send('PROG_RED')">&nbsp;</div>
+            <div class="btn" title="PROG_GREEN" style="background: #47AE7F;" onclick="send('PROG_GREEN')">&nbsp;</div>
+            <div class="btn" title="PROG_YELLOW" style="background: #F2D360;" onclick="send('PROG_YELLOW')">&nbsp;</div>
+        </div>
+    </div>
+    <div style="padding:12px;">
+        <div class="btn" title="MEDIA_REWIND" onclick="send('MEDIA_REWIND')"><i class="s fas fa-backward"></i></div>
+        <div class="btn" title="MEDIA_PLAY" onclick="send('MEDIA_PLAY')"><i class="ss fas fa-play"></i></div>
+        <div class="btn" title="MEDIA_PAUSE" onclick="send('MEDIA_PAUSE')"><i class="ss fas fa-pause"></i></div>
+        <div class="btn" title="MEDIA_PLAY_PAUSE" onclick="send('MEDIA_PLAY_PAUSE')"><i class="ss fas fa-play"></i><i
+                class="ss fas fa-pause"></i></div>
+        <div class="btn" title="MEDIA_FAST_FORWARD" onclick="send('MEDIA_FAST_FORWARD')"><i
+                class="s fas fa-forward"></i></div>
+        <div class="btn" title="MEDIA_STOP" onclick="send('MEDIA_STOP')"><i class="ss fas fa-stop"></i></div>
+        <div class="btn" title="MEDIA_RECORD" style="color: #ff4c4c" onclick="send('MEDIA_RECORD')">●</div>
+        <br>
+        <br>
+        <div class="btn" onclick="send('F1')">F1</div>
+        <div class="btn" onclick="send('F2')">F2</div>
+        <div class="btn" onclick="send('F3')">F3</div>
+        <div class="btn" onclick="send('F4')">F4</div>
+        <div class="btn" onclick="send('F5')">F5</div>
+        <div class="btn" onclick="send('F6')">F6</div>
+        <div class="btn" onclick="send('F7')">F7</div>
+        <div class="btn" onclick="send('F8')">F8</div>
+        <div class="btn" onclick="send('F9')">F9</div>
+        <div class="btn" onclick="send('F10')">F10</div>
+        <div class="btn" onclick="send('F11')">F11</div>
+        <div class="btn" onclick="send('F12')">F12</div>
+    </div>
+    <script>
+        function send(keycode) {
+            console.log("" + keycode)
+            var shell = new ActiveXObject("WScript.Shell");
+            var command = "adb shell input keyevent KEYCODE_" + keycode
+            shell.Run(command, 0, true)
+        }
+    </script>
+</body>
+
+</html>
